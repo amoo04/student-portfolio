@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs><radialGradient id="g" cx="70%" cy="40%" r="70%"><stop offset="0" stop-color="#51432f"/><stop offset="1" stop-color="#171714"/></radialGradient></defs>
+  <rect width="1280" height="720" fill="url(#g)"/>
+  <ellipse cx="880" cy="330" rx="420" ry="190" fill="none" stroke="#c6a66b" stroke-opacity=".4" transform="rotate(-20 880 330)"/>
+  <circle cx="880" cy="330" r="150" fill="#c6a66b" fill-opacity=".9"/>
+  <path d="M850 270v120l100-60z" fill="#171714"/>
+  <text x="110" y="300" font-family="Georgia,serif" font-size="92" fill="#f3f0e8">In motion.</text>
+  <text x="110" y="400" font-family="Georgia,serif" font-style="italic" font-size="92" fill="#c6a66b">A short reel.</text>
+  <text x="114" y="600" font-family="Arial,sans-serif" font-size="20" letter-spacing="6" fill="#a5a196">PRESS PLAY · 00:05</text>
+</svg>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An interactive academic planner to add, complete and delete study tasks.">
+  <meta name="author" content="Amoo Oluwasegun">
+  <title>Academic Planner | Amoo Oluwasegun</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Amoo Oluwasegun, home">
+      <span class="brand-mark" aria-hidden="true">A<span>✳</span></span><span class="brand-name">AMOO <i>OLUWASEGUN</i></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span>
+    </button>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html" aria-current="page">Planner</a></li>
+        <li><a href="contact.html" class="nav-contact">Contact <span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero section-wrap" aria-labelledby="pageTitle">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">Academic planner</li>
+        </ol>
+      </nav>
+      <p class="eyebrow"><span class="eyebrow-line"></span> 03 / ACADEMIC PLANNER</p>
+      <h1 id="pageTitle">Plan the work.<br><em>Work the plan.</em></h1>
+      <p class="lead">Add coursework, mark it completed when it’s done and delete what you no longer need. Your tasks are saved in this browser, so they’ll be here next time.</p>
+    </section>
+
+    <section class="section section-wrap" aria-label="Task planner">
+      <div class="planner-grid">
+        <!-- Add task form + progress -->
+        <aside class="planner-side reveal" aria-label="Add tasks and track progress">
+          <form class="panel" id="taskForm" novalidate>
+            <h2>Add a task</h2>
+            <p>What do you need to get done?</p>
+
+            <div class="field">
+              <label for="taskTitle">Task</label>
+              <input id="taskTitle" name="title" type="text" maxlength="100" placeholder="e.g. Finish COS 106 assignment" aria-describedby="taskTitleError" autocomplete="off">
+              <p class="error-message" id="taskTitleError" role="alert"></p>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="taskCourse">Course <span class="optional">(optional)</span></label>
+                <input id="taskCourse" name="course" type="text" maxlength="20" placeholder="e.g. COS 106" list="courseOptions" autocomplete="off">
+                <datalist id="courseOptions">
+                  <option value="COS 106"></option>
+                  <option value="MTH 101"></option>
+                  <option value="GST 101"></option>
+                  <option value="PHY 101"></option>
+                </datalist>
+              </div>
+              <div class="field">
+                <label for="taskDue">Due date <span class="optional">(optional)</span></label>
+                <input id="taskDue" name="due" type="date">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="taskPriority">Priority</label>
+              <select id="taskPriority" name="priority">
+                <option value="high">High</option>
+                <option value="medium" selected>Medium</option>
+                <option value="low">Low</option>
+              </select>
+            </div>
+
+            <button class="button button-gold" type="submit">Add task <span aria-hidden="true">+</span></button>
+          </form>
+
+          <div class="panel panel-dark" aria-labelledby="progressTitle">
+            <p class="eyebrow" id="progressTitle"><span class="eyebrow-line"></span> YOUR PROGRESS</p>
+            <div class="stat-grid">
+              <div><strong id="statTotal">0</strong><span>TOTAL</span></div>
+              <div><strong id="statDone">0</strong><span>COMPLETED</span></div>
+              <div><strong id="statLeft">0</strong><span>REMAINING</span></div>
+            </div>
+            <div class="progress-label"><span>COMPLETION</span><strong id="progressPercent">0%</strong></div>
+            <div class="progress-track" role="progressbar" aria-label="Tasks completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p class="progress-message" id="progressMessage">Every great term starts with a first tick.</p>
+          </div>
+        </aside>
+
+        <!-- Task list -->
+        <div class="reveal">
+          <div class="task-toolbar">
+            <h2>My tasks</h2>
+            <div class="task-filters" role="group" aria-label="Show tasks">
+              <button class="filter-btn active" type="button" data-task-filter="all" aria-pressed="true">All</button>
+              <button class="filter-btn" type="button" data-task-filter="active" aria-pressed="false">Active</button>
+              <button class="filter-btn" type="button" data-task-filter="completed" aria-pressed="false">Completed</button>
+            </div>
+          </div>
+
+          <ul class="task-list" id="taskList" aria-label="Tasks"></ul>
+
+          <div class="empty-state" id="emptyState" hidden>
+            <div class="big" aria-hidden="true">✳</div>
+            <p id="emptyText">No tasks yet. Add your first one to get started.</p>
+          </div>
+
+          <div class="task-footer">
+            <span id="footerCount">0 tasks remaining</span>
+            <button class="link-button" type="button" id="clearCompleted">Clear completed</button>
+          </div>
+
+          <p class="visually-hidden" id="plannerStatus" aria-live="polite"></p>
+
+          <noscript><p class="body-copy">The planner needs JavaScript. Please enable it in your browser.</p></noscript>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-band" aria-label="Motto">
+      <div class="quote-mark" aria-hidden="true">“</div>
+      <blockquote>Small daily wins<br><em>become big results.</em></blockquote>
+      <span>ONE TASK AT A TIME</span>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="index.html" aria-label="Amoo Oluwasegun, home">
+      <span class="brand-mark" aria-hidden="true">A<span>✳</span></span><span class="brand-name">AMOO <i>OLUWASEGUN</i></span>
+    </a>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html" aria-current="page">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#top" class="back-top">Back to top ↑</a>
+    <div class="footer-bottom">
+      <small>© <span id="year">2026</span> Amoo Oluwasegun · COS 106 Term Project · MIVA Open University</small>
+      <small>Designed &amp; built with HTML, CSS &amp; JavaScript</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/planner.js"></script>
+</body>
+</html>

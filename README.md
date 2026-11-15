@@ -5,7 +5,6 @@ MIVA Open University · B.Sc. Software Engineering (100 Level)
 
 A responsive, multi-page portfolio and academic management website built with plain HTML, CSS and JavaScript (no frameworks, no build step). It introduces me, shows real projects I have built, and includes a working academic task planner.
 
-**Live site:** https://amoo04.github.io/student-portfolio/
 **Repository:** https://github.com/amoo04/student-portfolio
 
 ## Pages

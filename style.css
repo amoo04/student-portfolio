@@ -1844,16 +1844,7 @@ h2 em {
 
 .footer-nav a,
 .site-footer small,
-.back-top {
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  color: var(--muted);
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.footer-nav a:hover,
-.back-top:hover {
+.footer-nav a:hover {
   color: var(--gold-deep);
 }
 
@@ -1864,10 +1855,6 @@ h2 em {
   gap: 20px;
   padding-top: 20px;
   border-top: 1px solid var(--line);
-}
-
-.back-top {
-  color: var(--ink);
 }
 
 /* ---------- 14. Animations ---------- */

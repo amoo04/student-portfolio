@@ -56,12 +56,14 @@ student-portfolio/
 
 Double-click `index.html` to open it in a browser, or use the VS Code **Live Server** extension.
 
-## Host on GitHub Pages
+## Hosting (Cloudflare)
 
-1. Create a new public repository on GitHub named `student-portfolio`.
-2. Upload every file and folder in this project.
-3. Go to **Settings → Pages**, choose **Deploy from a branch**, pick `main` and `/ (root)`, then save.
-4. After a minute the site is live at `https://amoo04.github.io/student-portfolio/`. Submit this link together with the repository link.
+The site is hosted on Cloudflare and deploys automatically from the `main` branch of this repository. It is a static site, so there is no build step.
+
+1. In the Cloudflare dashboard, go to **Workers & Pages → Create → Pages → Connect to Git**.
+2. Select the `amoo04/student-portfolio` repository.
+3. Leave **Build command** empty and set **Build output directory** to `/`.
+4. Click **Save and Deploy**. Every push to `main` now updates the live site.
 
 ## Contact
 
